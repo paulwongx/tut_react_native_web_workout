@@ -1,22 +1,26 @@
 {
-  "name": "20210821_react_native_web_workout",
-  "version": "1.0.0",
-  "description": "## Setting up",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "git": "git add . && git commit -m",
-    "postgit": "git push --all"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulwongx/tut_react_native_web_workout.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paulwongx/tut_react_native_web_workout/issues"
-  },
-  "homepage": "https://github.com/paulwongx/tut_react_native_web_workout#readme"
+	"private": true,
+	"name": "20210821_react_native_web_workout",
+	"version": "1.0.0",
+	"description": "## Setting up",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"git": "git add . && git commit -m",
+		"postgit": "git push --all"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/paulwongx/tut_react_native_web_workout.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/paulwongx/tut_react_native_web_workout/issues"
+	},
+	"homepage": "https://github.com/paulwongx/tut_react_native_web_workout#readme",
+	"workspaces": [
+		"packages/*"
+	]
 }

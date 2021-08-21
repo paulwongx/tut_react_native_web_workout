@@ -3,6 +3,7 @@
 ## Setting up
 
 ### Setup web app
+
 ```bash
 $ npx create-react-app web --template typescript --use-npm
 $ cd web # go into the app if needed
@@ -12,7 +13,7 @@ $ npm i -D @types/react-native
 
 -   Delete App.css, App.test.tsx, index.css, logo.svg
 -   Delete `import './index.css';` from index.tsx
--   Paste the below into index.tsx
+-   Paste the code below into index.tsx
 
 ```js
 import { AppRegistry } from "react-native";
@@ -24,21 +25,57 @@ AppRegistry.runApplication("App", {
 ```
 
 ### Setup react native app
+
 ```bash
 $ npx react-native init mobile --template react-native-template-typescript
 $ cd mobile
 # Reinstall packages with npm (if windows is slow like me)
-$ sudo rimraf node_modules && yarn.lock # or manually delete node_modules if rimraf isn't installed globally
+$ sudo rimraf node_modules && yarn.lock # or manually delete node_modules if rimraf isn't installed
 $ npm install
 # Open up Command Prompt terminal
 $ cd mobile
 $ npm run android
 ```
 
+## Creating a monorepo with Workspaces
+
+-   Move `mobile` and `web` folder into a new `packages` folder
+    `$ npm init -y` in the main folder
+-   Add to package.json for saving purposes
+
+```js
+{
+    // add private: true
+    "private": true,
+    "scripts": {
+        // ...
+        "git": "git add . && git commit -m",
+        "postgit": "git push --all"
+    },
+    // add workspaces
+    "workspaces": [
+        "packages/*"
+    ]
+}
+```
+- Remove node modules in subpackages
+```bash
+$ rm -rf packages/*/node_modules/ # or just delete node_modules inside mobile and web
+$ npm install # in the root path
+$ cd packages && mkdir common && cd common && npm init -y
+# Change name of `package/common/package.json` to `@app/common`
+$ mkdir src && cd src && touch index.tsx
+# Copy `mobile/App.tsx` into `index.tsx`
+$ cd .. # into common folder
+$ npm i react-native react
+$ npm i -D typescript @types/react-native
+```
+
 ## Shortcuts
-`tsrafce` - typescript react arrow functional component export
-`rnss` - react-native stylesheets
-`rh` - react-hook
+
+`tsrafce` - typescript react arrow functional component export \
+`rnss` - react-native stylesheets \
+`rh` - react-hook \
 
 ## Resources
 
