@@ -27,7 +27,12 @@ AppRegistry.runApplication("App", {
 ```bash
 $ npx react-native init mobile --template react-native-template-typescript
 $ cd mobile
-$ npx react-native run-android
+# Reinstall packages with npm (if windows is slow like me)
+$ sudo rimraf node_modules && yarn.lock # or manually delete node_modules if rimraf isn't installed globally
+$ npm install
+# Open up Command Prompt terminal
+$ cd mobile
+$ npm run android
 ```
 
 ## Shortcuts
