@@ -58,7 +58,9 @@ $ npm run android
     ]
 }
 ```
-- Remove node modules in subpackages
+
+-   Remove node modules in subpackages
+
 ```bash
 $ rm -rf packages/*/node_modules/ # or just delete node_modules inside mobile and web
 $ npm install # in the root path
@@ -67,9 +69,39 @@ $ cd packages && mkdir common && cd common && npm init -y
 $ mkdir src && cd src && touch index.tsx
 # Copy `mobile/App.tsx` into `index.tsx`
 $ cd .. # into common folder
-$ npm i react-native react
+$ npm i react-native react rimraf
 $ npm i -D typescript @types/react-native
+$ touch tsconfig.json
+# copy web tsconfig.json to common tsconfig.json
+# delete allowJs, change isolatedModules: true to declaration: true, delete noEmit, add outDir: dist
 ```
+
+-   Add to `common/package.json`
+
+```js
+    "main": "dist/index.js", // change to dist/index.js
+	"scripts": {
+		"build": "rimraf dist && tsc -p tsconfig.json"
+	},
+```
+```bash
+$ npm run build
+```
+### Use common component in web
+```bash
+# Add "@app/common": "file:../common", to package.json > "dependencies": {} in web
+$ npm link # inside common folder to initiate a link
+$ cd ../web/
+$ npm link @app/common # create symlink @app/common package
+$ cd .. && npm install # install in root folder
+# check link works with ls node_modules/@app
+# add this to root package.json to list all symlinks
+	# "scripts": {
+    #     "symlinks": "npm ls -g --depth=0 --link=true"
+	# },
+
+```
+
 
 ## Shortcuts
 
