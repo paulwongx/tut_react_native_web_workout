@@ -5,10 +5,11 @@
 	"description": "## Setting up",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "npm run test --workspaces",
 		"git": "git add . && git commit -m",
 		"postgit": "git push --all",
-		"symlinks": "npm ls -g --depth=0 --link=true"
+		"symlinks": "npm ls -g --depth=0 --link=true",
+        "delete": "rm -rf packages/*/node_modules"
 	},
 	"repository": {
 		"type": "git",
