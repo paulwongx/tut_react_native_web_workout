@@ -9,7 +9,7 @@
 		"git": "git add . && git commit -m",
 		"postgit": "git push --all",
 		"symlinks": "npm ls -g --depth=0 --link=true",
-		"delete": "rm -rf packages/*/node_modules"
+		"delete": "rimraf packages/*/node_modules && rimraf node_modules"
 	},
 	"repository": {
 		"type": "git",
@@ -24,5 +24,8 @@
 	"homepage": "https://github.com/paulwongx/tut_react_native_web_workout#readme",
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"devDependencies": {
+		"rimraf": "^3.0.2"
+	}
 }

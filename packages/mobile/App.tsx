@@ -8,6 +8,9 @@
  * @format
  */
 
+// import {App} from '@myapp/common';
+// export default App;
+
  import React from 'react';
  import {
    SafeAreaView,

@@ -5,6 +5,15 @@
  * @format
  */
 
+const path = require('path');
+
+// react-native >= 0.57
+
+const extraNodeModules = {
+  'qb-core': path.resolve(__dirname + '/../common/'),
+};
+const watchFolders = [path.resolve(__dirname + '/../common/')];
+
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -14,4 +23,8 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    extraNodeModules,
+  },
+  watchFolders,
 };

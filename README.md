@@ -87,10 +87,13 @@ $ touch tsconfig.json
 		"build": "rimraf dist && tsc -p tsconfig.json"
 	},
 ```
+
 ```bash
 $ npm run build
 ```
+
 ### Use common component in web
+
 ```bash
 # Add "@app/common": "file:../common", to package.json > "dependencies": {} in web
 $ npm link # inside common folder to initiate a link
@@ -102,13 +105,13 @@ $ cd .. && npm install # install in root folder
 	# "scripts": {
     #     "symlinks": "npm ls -g --depth=0 --link=true"
 	# },
-# add "type": "module" to all package.json and change tsconfig.json in common and web to "module": "esnext",
-
+# add "type": "module" to all package.json except packages/mobile and change tsconfig.json in common and web to "module": "esnext",
 ```
 
-** All packages must be installed at root level using `npm i <package_name> -w @app/<workspace_name>`
+\*\* All packages must be installed at root level using `npm i <package_name> -w @app/<workspace_name>`
 
-- Add a .gitignore file in the root
+-   Add a .gitignore file in the root
+
 ```py
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -166,6 +169,19 @@ tmp
 
 ```
 
+-   Add nohoist in `packages/mobile/package.json`
+
+```js
+  "workspaces": {
+    "nohoist": [
+      "react-native",
+      "react-native/**",
+      "react",
+      "react/**"
+    ]
+  }
+```
+
 ## Shortcuts
 
 `tsrafce` - typescript react arrow functional component export \
@@ -178,3 +194,4 @@ tmp
 [React native web using expo](https://codersera.com/blog/running-react-native-web-using-expo-in-2020/) \
 [React native web navigation](https://codersera.com/blog/how-to-do-navigation-in-react-native-web-in-2020/)
 [React native typescript template](https://github.com/react-native-community/react-native-template-typescript) \
+[React native symlinks](https://medium.com/@slavik_210/symlinks-on-react-native-ae73ed63e4a7) \
