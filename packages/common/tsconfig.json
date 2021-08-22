@@ -13,7 +13,7 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"declaration": true,
-		"jsx": "react-jsx"
+		"jsx": "react"
 	},
 	"include": ["src"]
 }

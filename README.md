@@ -74,6 +74,9 @@ $ npm i -D typescript @types/react-native
 $ touch tsconfig.json
 # copy web tsconfig.json to common tsconfig.json
 # delete allowJs, change isolatedModules: true to declaration: true, delete noEmit, add outDir: dist
+# 		"declaration": true,
+#		"jsx": "react"
+#       "include": ["src"]
 ```
 
 -   Add to `common/package.json`
@@ -99,9 +102,69 @@ $ cd .. && npm install # install in root folder
 	# "scripts": {
     #     "symlinks": "npm ls -g --depth=0 --link=true"
 	# },
+# add "type": "module" to all package.json and change tsconfig.json in common and web to "module": "esnext",
 
 ```
 
+** All packages must be installed at root level using `npm i <package_name> -w @app/<workspace_name>`
+
+- Add a .gitignore file in the root
+```py
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+./**/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# Ignore built ts files
+dist/**/*
+
+# ignore yarn.lock
+yarn.lock
+package-lock.json
+
+# API keys and secrets
+.env
+
+# Dependency directory
+node_modules
+bower_components
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+
+pids
+logs
+results
+tmp
+
+```
 
 ## Shortcuts
 

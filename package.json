@@ -1,15 +1,15 @@
 {
+	"name": "@myapp/main",
 	"private": true,
-	"name": "20210821_react_native_web_workout",
 	"version": "1.0.0",
-	"description": "## Setting up",
+	"description": "Setting up",
 	"main": "index.js",
 	"scripts": {
 		"test": "npm run test --workspaces",
 		"git": "git add . && git commit -m",
 		"postgit": "git push --all",
 		"symlinks": "npm ls -g --depth=0 --link=true",
-        "delete": "rm -rf packages/*/node_modules"
+		"delete": "rm -rf packages/*/node_modules"
 	},
 	"repository": {
 		"type": "git",
